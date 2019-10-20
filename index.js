@@ -4,9 +4,16 @@ const http = require('http')
 const fs = require('fs')
 
 //reads file then returns it into a var(const)
-const aboutpage = fs.readFileSync('about.html')
-const contactpage = fs.readFileSync('contact.html')
-const homepage = fs.readFileSync('index.html')
+// sync = synchronous (one must be complete for the other to take place) 
+
+// NONE Blocking code
+
+const aboutpage = fs.readFile('about.html')
+
+const contactpage = fs.readFile('contact.html')
+
+const homepage = fs.readFile('index.html')
+
 
 const server = http.createServer((request, responce) => {
     
