@@ -1,4 +1,31 @@
-const http = require('http')
+// build app faster
+const express = require('express')
+
+const app = new express()
+
+app.get('/', (request, responce) => {
+
+    responce.json({
+        name: 'hello world'
+    })
+
+})
+
+app.get('/about', (request, responce) => {
+
+    responce.send({
+        name: 'hello world'
+    })
+
+})
+
+app.listen(3000, () => {
+
+    console.log('app listeing on post 3000')
+
+})
+
+/* const http = require('http')
 
 //far system
 const fs = require('fs')
@@ -14,7 +41,7 @@ const contactpage = fs.readFile('contact.html')
 
 const homepage = fs.readFile('index.html')
 
-
+//routes...
 const server = http.createServer((request, responce) => {
     
     console.log(request.url)
@@ -43,4 +70,4 @@ const server = http.createServer((request, responce) => {
 })
 
 
-server.listen(3000)
+server.listen(3000) */
