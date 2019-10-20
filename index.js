@@ -1,21 +1,28 @@
 // build app faster
+
+const path = require('path')
+
 const express = require('express')
 
 const app = new express()
 
-app.get('/', (request, responce) => {
+app.use(express.static('Public'))
 
-    responce.json({
-        name: 'hello world'
-    })
+app.get('/', (request, res) => {
+
+    res.sendFile(path.resolve(__dirname, 'index.html'))
 
 })
 
-app.get('/about', (request, responce) => {
+app.get('/about', (request, res) => {
 
-    responce.send({
-        name: 'hello world'
-    })
+    res.sendFile(path.resolve(__dirname, 'about.html'))
+
+})
+
+app.get('/contact', (request, res) => {
+
+    res.sendFile(path.resolve(__dirname, 'contacft.html'))
 
 })
 
